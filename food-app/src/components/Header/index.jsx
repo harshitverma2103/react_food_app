@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../../assets/assets";
 import "./style.css";
 
 const Navbar = () => {
+  const [menu, setMenu] = useState("Home");
+
+  const handleMenuClick = (menuItem) => {
+    setMenu(menuItem);
+  };
+
   return (
     <nav className="navbar">
       <img src={assets.logo} alt="Logo" className="logo" />
       <ul className="navbar-menu">
-        <li>Home</li>
-        <li>Menu</li>
-        <li>Mobile App</li>
-        <li>Contact Us</li>
+        {["Home", "Menu", "Mobile-app", "Contact-Us"].map((item) => (
+          <li
+            key={item}
+            className={menu === item ? "active" : ""}
+            onClick={() => handleMenuClick(item)}
+          >
+            {item}
+          </li>
+        ))}
       </ul>
       <div className="navbar-right">
         <img
@@ -22,7 +33,7 @@ const Navbar = () => {
           <img src={assets.basket_icon} alt="Basket Icon" />
           <div className="dot"></div>
         </div>
-        <button>Sign In</button>
+        <button className="sign-in-button">Sign In</button>
       </div>
     </nav>
   );

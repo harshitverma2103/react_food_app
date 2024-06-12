@@ -5,22 +5,48 @@
   align-items: center;
 }
 
-.navbar .logo {
+.logo {
   width: 150px;
 }
 
 .navbar-menu {
-  display: flex;
   list-style: none;
-  gap: 20px;
-  color: #49557e;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 10px;
+  cursor: pointer;
   font-size: 18px;
+  font-weight: 500;
+  padding: 10px;
+  color: #49557e;
+}
+
+.navbar-menu li.active {
+  border-bottom: 3px solid #49557e;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.navbar-basket-icon {
+  position: relative;
+}
+
+.navbar-basket-icon .dot {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 8px;
+  height: 8px;
+  background-color: tomato;
+  border-radius: 50%;
 }
 
 .navbar button {
@@ -31,7 +57,7 @@
   padding: 10px 30px;
   border-radius: 50px;
   cursor: pointer;
-  transition: 0.3s
+  transition: 0.3s;
 }
 
 .navbar button:hover {
